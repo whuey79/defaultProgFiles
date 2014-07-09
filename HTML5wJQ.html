@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Sample HTML5 Webpage</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <meta charset="utf-8"/>
+  <title>Sample HTML5 Webpage</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-<p>This is a sample webpage.</p>
-<div id="result"></div>
-<script>
+  <p>This is a sample webpage.</p>
+  <div id="result"></div>
+  <script>
+  $(document).ready(function() {
+       $.ajax({
+           type: "GET",
+           url: "http://rest-service.guides.spring.io/greeting",
+           contentType: "application/json; charset=utf-8",
+           dataType: "json",
+           async: true,
+           success: function (data, status, jqXHR) {
+               console.log("Data:" + data);
+               console.log("Status:" + status);
+               $('#result').html("<p>" + data.content + "</p>");
+           },
 
-$(document).ready(function() {
-     $.ajax({
-         type: "GET",
-         url: "http://rest-service.guides.spring.io/greeting",
-         contentType: "application/json; charset=utf-8",
-         dataType: "json",
-         async: true,
-         success: function (data, status, jqXHR) {
-             console.log("Data:" + data);
-             console.log("Status:" + status);
-             $('#result').html("<p>" + data.content + "</p>");
-         },
-
-         error: function (jqXHR, status) {
-             // error handler
-         }
-     });
-});
-</script>
-<p>AJAX DONE!</p>
+           error: function (jqXHR, status) {
+               // error handler
+           }
+       });
+  });
+  </script>
+  <p>AJAX DONE!</p>
 
 </body>
 </html>
