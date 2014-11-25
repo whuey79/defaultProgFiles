@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>FizzBuzz Fun</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+
+    body {
+      margin:100px;
+      width:960px;
+      border-radius:10px;
+      
+      border:1px solid black;
+      padding:50px;
+    }
+    
+    #result {
+      border-radius:10px;
+      text-align:center;
+      border:1px solid black;
+      padding:50px;
+      width:80%;
+      margin:50px auto;
+      -webkit-transition: all 0.6s ease;
+      -moz-transition: all 0.6s ease;
+      -o-transition: all 0.6s ease;
+      -ms-transition: all 0.6s ease;
+      transition: all 0.6s ease;
+    
+      text-shadow: 1px 1px 0 black, 2px 2px 0 black;
+
+    }
+    
+    .sub {
+      float:left;
+    }
+    .iter {
+      float:right;
+    }
+    p {
+      clear:both;
+    }
+    
+    </style> 
+  </head>
+  
+  <body>
+    <div>
+      <h1 class="sub">Fun with FizzBuzz</h1>
+      <h1  class="iter">Iteration: <span></span></h1>
+      <p></p>
+    </div>
+    
+    <div id="result">
+    </div>
+
+    <script>
+  
+      (function() {
+        var $result = $('#result');
+        var $iter = $('.iter span');
+        var i = 1;
+        
+        setInterval(function () {
+          //alert(getRand());
+          $iter.text(i);
+          $result.text( fizzbuzz(i) ).css("font-size", getRand()+"%");
+          i++;
+        }, 2000);
+      })();
+      
+        function fizzbuzz(num){
+          if (num % 3 === 0 && num % 5 === 0) {
+            return "FizzBuzz";
+          }
+          else if (num % 3 === 0) {
+            return "Fizz";
+          }
+          else if (num % 5 === 0) {
+            return "Buzz";
+          }
+          return num;
+        } 
+        
+        function getRand() {
+          return Math.floor( Math.random() * 300 ) + 1000;
+        }
+    </script>
+  </body>
+</html>

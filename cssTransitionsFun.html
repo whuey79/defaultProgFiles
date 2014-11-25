@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>CSS Transitions fun</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      margin:50px;
+    }
+    
+    #result {
+      border: 1px solid black;
+      border-radius: 10px;
+      height:500px;
+      width:500px;
+      position:relative;
+    }
+
+    .xl {
+      height:100px;
+      width:100px;
+      background:yellow;
+      border-radius:100px;
+      position:absolute;
+      top:200px;
+      left:200px;
+      transition: all 3s ease-in-out 0.5s;
+      opacity:0;
+    }
+    
+    .big {
+      height:100px;
+      width:100px;
+      background:red;
+      border-radius:50px;
+      position:absolute;
+      top:200px;
+      left:200px;
+      transition: opacity 3s;
+      opacity:1;
+      z-index:2;
+    }
+    
+    .small {
+      height:20px;
+      width:20px;
+      background:blue;
+      border-radius:10px;
+      position:absolute;      
+      top:240px;
+      left:240px;
+      transition: all 3s ease 0;
+    }
+    
+    #result:hover div:nth-child(2) { top:0px; left:0; }
+    #result:hover div:nth-child(3) { top:0px; left:480px;transition-delay: 0.6s; }
+    #result:hover div:nth-child(4) { top:480px; left:0;transition-delay: 0.5s; }
+    #result:hover div:nth-child(5) { top:480px; left:480px;transition-delay: 0.1s;  }
+    #result:hover div:nth-child(6) { top:480px;transition-delay: 0.4s;  }
+    #result:hover div:nth-child(7) { left:0px;transition-delay: 0.3s; }
+    #result:hover div:nth-child(8) { left:480px;transition-delay: 0.6s; }
+    #result:hover div:nth-child(9) { top:0px;transition-delay: 0.2s; }
+
+    #result:hover .big {
+      opacity:0;
+    }
+    #result:hover .xl {
+      opacity:1;
+      top:150px;
+      left:150px;
+      height:200px;
+      width:200px;
+
+      border:1px solid orange;
+    }
+  </style>
+  
+  </head>
+<body>
+  <h1>Fun with CSS Transitions</h1>
+  <div id="result">
+    
+    <div class='big'></div>
+    <div class='small'></div>  
+    <div class='small'></div>  
+    <div class='small'></div>
+    <div class='small'></div>
+    <div class='small'></div>  
+    <div class='small'></div>  
+    <div class='small'></div>
+    <div class='small'></div>
+  <div class='xl'></div>  
+  </div>
+
+</body>
+</html>
